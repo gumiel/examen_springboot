@@ -1,24 +1,27 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
+import org.hibernate.proxy.HibernateProxy;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
-@Data
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "user")
-@NoArgsConstructor
+@Table(name = "users")
 public class User {
+
     @Id
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
     Integer id;
     String username;
     Boolean active;
     LocalDate expire;
+
 
 }
